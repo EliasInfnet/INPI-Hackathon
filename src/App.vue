@@ -1,32 +1,47 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+    <b-jumbotron
+      align="center"
+      style="background-color: #1b263b"
+      header="Marca coletiva"
+      lead="-----     Descubra aqui se sua marca se encaixa em uma marca coletiva     -----"
+    >
+      <b-button size="lg" variant="outline-light" to="/Quiz"
+        >Iniciar teste</b-button
+      >
+    </b-jumbotron>
+    <transition name="fade" mode="out-in">
+      <router-view />
+    </transition>
   </div>
 </template>
 
+<script>
+export default {
+  name: "App",
+};
+</script>
+
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  background-color: rgb(13, 27, 42);
+  font-family: "yu gothic light";
+  letter-spacing: 1px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  color: #e8e9eb;
+  padding: 60px 200px 30px;
+  height: 150vh;
 }
 
-#nav {
-  padding: 30px;
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+  transform: translateX(2em);
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.3s ease;
 }
 </style>
